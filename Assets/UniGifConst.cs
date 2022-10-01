@@ -266,7 +266,7 @@ public static partial class UniGif
                     m_appDataList[0].m_applicationData.Length < 3 ||
                     m_appDataList[0].m_applicationData[0] != 0x01)
                 {
-                    return 0;
+                    return 1;
                 }
                 return BitConverter.ToUInt16(m_appDataList[0].m_applicationData, 1);
             }
