@@ -16,5 +16,6 @@ public class camera : MonoBehaviour
     void Update()
     {
         transform.position = target.position + offset;
+        GetComponent<Camera>().fieldOfView = 60 + target.localScale.x*2;
     }
 }
