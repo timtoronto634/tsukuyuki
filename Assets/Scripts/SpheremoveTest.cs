@@ -14,6 +14,8 @@ public class SpheremoveTest : MonoBehaviour
     void Update()
     {
         Vector2 axis = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 acceleration = new Vector2(Input.acceleration.x * -1, Input.acceleration.y);
         this.GetComponent<Rigidbody>().AddForce(axis.x, 0, axis.y);
+        this.GetComponent<Rigidbody>().AddForce(acceleration.x, 0, acceleration.y);
     }
 }
