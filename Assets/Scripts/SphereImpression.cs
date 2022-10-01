@@ -73,7 +73,9 @@ public class SphereImpression : MonoBehaviour
 
         // ‹…–{‘Ì‚ð¬’·‚³‚¹‚é
         var distance = Vector3.Distance(_beforePosition, _sphere.position);
-        _sphere.localScale += new Vector3(distance, distance, distance) * 0.2f;
+        _sphere.localScale += new Vector3(distance, distance, distance) * 0.05f;
+        if (_sphere.localScale.x > 30)
+            _sphere.localScale = new Vector3(30, 30, 30);
         _beforePosition = _sphere.position;
 
         // ’n–Ê‚ð“h‚é
