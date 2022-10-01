@@ -16,7 +16,8 @@ public class camera : MonoBehaviour
     void Update()
     {
         transform.position = target.position + offset;
-        float fov = Mathf.Min(120, 60 + target.localScale.x * 10);
+        float fov = Mathf.Min(120, 10 + target.localScale.x * 20);
         GetComponent<Camera>().fieldOfView = fov;
+        GetComponent<Camera>().transform.LookAt(target);
     }
 }

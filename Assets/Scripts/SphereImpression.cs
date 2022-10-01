@@ -31,7 +31,7 @@ public class SphereImpression : MonoBehaviour
 
         _draw = new Material(_shader);
         _snow = _terrain.GetComponent<MeshRenderer>().material; // tesselation shader
-        _splatmap = new RenderTexture(512, 512, 0, RenderTextureFormat.ARGBFloat);
+        _splatmap = new RenderTexture(2048, 2048, 0, RenderTextureFormat.ARGBFloat);
         _snow.SetTexture("_Splatmap", _splatmap);
         _beforePosition = _sphere.position;
     }
@@ -73,7 +73,7 @@ public class SphereImpression : MonoBehaviour
 
         // ‹…–{‘Ì‚ð¬’·‚³‚¹‚é
         var distance = Vector3.Distance(_beforePosition, _sphere.position);
-        _sphere.localScale += new Vector3(distance, distance, distance) * 0.05f;
+        _sphere.localScale += new Vector3(distance, distance, distance) * 0.03f;
         if (_sphere.localScale.x > 30)
             _sphere.localScale = new Vector3(30, 30, 30);
         _beforePosition = _sphere.position;
