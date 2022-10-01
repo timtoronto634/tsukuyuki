@@ -7,7 +7,6 @@
 		_Color("Red Color", Color) = (1,0,0,0)
 		_Size("Size", Range(1,500)) = 1
 		_Strength("Strength", Range(0,1)) = 1
-		_AlreadyDraw("AlreadyDraw",Int) = 0
 	}
 	SubShader
 	{
@@ -38,7 +37,6 @@
 			float4 _MainTex_ST;
 			fixed4 _Coordinates, _Color; 
 			half _Size, _Strength;
-			int _AlreadyDraw;
 
 			v2f vert (appdata v)
 			{
@@ -54,7 +52,6 @@
 				fixed4 col = tex2D(_MainTex, i.uv);
 				float draw = pow(saturate(1 - distance(i.uv, _Coordinates.xy)), 500 / _Size);
 				fixed4 drawcol = _Color * (draw * _Strength);
-				_AlreadyDraw = 10;
 				return saturate(col + drawcol);
 
 				return col;
