@@ -65,7 +65,7 @@ Shader "Custom/SnowAlphaShader"
 				o.Albedo = c.rgb;
 				o.Metallic = _Metallic;
 				o.Smoothness = _Glossiness;
-				o.Alpha = 1 - s.r;
+				o.Alpha = min(1 - s.r,c.a);
 			}
 		ENDCG
 	}
