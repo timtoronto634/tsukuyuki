@@ -5,18 +5,61 @@ using UnityEngine.SceneManagement;
 
 public class GodOfBefore : MonoBehaviour
 {
+    public enum State {
+        init,
+        hyokkori,
+        countdown,
+        game
+    }
+    public State state;
+
+    public GameObject hyokkoriImage;
+    public GameObject hukidashi;
+    public GameObject tsukutte;
+
+    public GameObject countdownGif;
+    public GameObject countdownAudio;
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = State.init;
+        played = false;
     }
+    private bool played;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-        // SampleSceneに切り替える
-            SceneManager.LoadScene("AR");
+        switch (state)
+        {
+            case State.init:
+                state = State.hyokkori;
+                break;
+            case State.hyokkori:
+                if (!played && !tsukutte.GetComponent<AudioSource>().isPlaying) {
+                    hyokkoriImage.SetActive(true);
+                    hukidashi.SetActive(true);
+                    tsukutte.SetActive(true);
+                    played = true;
+                } else if (played &&  !tsukutte.GetComponent<AudioSource>().isPlaying) {
+                    state = State.countdown;
+                    hyokkoriImage.SetActive(false);
+                    hukidashi.SetActive(false);
+                }
+                break;
+            case State.countdown:
+                countdownGif.SetActive(true);
+                countdownGif.GetComponent<gifPlayer>().Play();
+                countdownAudio.SetActive(true);
+                if (countdownGif.GetComponent<gifPlayer>().isFinished) {
+                    state = State.game;
+                }
+                break;
+            case State.game:
+                SceneManager.LoadScene("InGame");
+                break;
+            default:
+                break;
         }
     }
 }
