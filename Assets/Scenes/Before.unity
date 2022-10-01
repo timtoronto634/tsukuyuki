@@ -152,9 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceafc2d565e743141963e3b5757d7152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1952866632}
-  tsukutte: {fileID: 796081945}
-  countdown: {fileID: 2080386783}
+  state: 0
+  hyokkoriImage: {fileID: 1829932252}
+  hukidashi: {fileID: 970946685}
+  tsukutte: {fileID: 796081944}
+  countdownGif: {fileID: 1952866626}
+  countdownAudio: {fileID: 2080386782}
 --- !u!4 &343764867
 Transform:
   m_ObjectHideFlags: 0
@@ -181,12 +184,12 @@ GameObject:
   - component: {fileID: 796081946}
   - component: {fileID: 796081945}
   m_Layer: 0
-  m_Name: tsukatte
+  m_Name: tsukatteAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &796081945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -378,12 +381,12 @@ GameObject:
   - component: {fileID: 970946688}
   - component: {fileID: 970946687}
   m_Layer: 5
-  m_Name: hukidasi
+  m_Name: hukidasiImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &970946686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -651,12 +654,12 @@ GameObject:
   - component: {fileID: 1829932255}
   - component: {fileID: 1829932254}
   m_Layer: 5
-  m_Name: hyokkori
+  m_Name: hyokkoriImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1829932253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -728,12 +731,12 @@ GameObject:
   - component: {fileID: 1952866630}
   - component: {fileID: 1952866632}
   m_Layer: 5
-  m_Name: countdown
+  m_Name: countdownGif
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1952866627
 RectTransform:
   m_ObjectHideFlags: 0
@@ -818,12 +821,12 @@ GameObject:
   - component: {fileID: 2080386784}
   - component: {fileID: 2080386783}
   m_Layer: 0
-  m_Name: countdown
+  m_Name: countdownAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2080386783
 AudioSource:
   m_ObjectHideFlags: 0
