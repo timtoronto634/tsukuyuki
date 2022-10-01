@@ -8,7 +8,8 @@ public class GodOfBefore : MonoBehaviour
     public enum State {
         init,
         hyokkori,
-        countdown
+        countdown,
+        game
     }
     public State state;
 
@@ -50,6 +51,12 @@ public class GodOfBefore : MonoBehaviour
                 countdownGif.SetActive(true);
                 countdownGif.GetComponent<gifPlayer>().Play();
                 countdownAudio.SetActive(true);
+                if (countdownGif.GetComponent<gifPlayer>().isFinished) {
+                    state = State.game;
+                }
+                break;
+            case State.game:
+                SceneManager.LoadScene("InGame");
                 break;
             default:
                 break;
