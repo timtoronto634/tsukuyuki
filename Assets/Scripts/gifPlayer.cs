@@ -12,12 +12,14 @@ public class gifPlayer : MonoBehaviour
     public string Filename;
 
     public bool repeat = false;
+    public bool autoPlay = false;
     private List<Texture2D> mFrames = new List<Texture2D>();
     private List<float> mFrameDelay = new List<float>();
 
     private int mCurFrame = 0;
     private float mTime = 0.0f;
-    private bool isPlay = false;
+    public bool isPlaying = false;
+    public bool isFinished = false;
 
     void Start()
     {
@@ -41,18 +43,21 @@ public class gifPlayer : MonoBehaviour
         }
 
         image.texture = mFrames[0];
+
+        if (autoPlay) Play();
     }
 
     void Update()
     {
-        if (!isPlay) return;
+        if (!isPlaying) return;
         if (mFrames == null)
         {
             return;
         }
 
-        if(mCurFrame >= mFrames.Count && !repeat)
+        if(mCurFrame >= mFrames.Count -1 && !repeat)
         {
+            isFinished = true;
             return;
         }
 
@@ -73,6 +78,6 @@ public class gifPlayer : MonoBehaviour
     [ContextMenu("Play")]
     public void Play()
     {
-        isPlay = true;
+        isPlaying = true;
     }
 }
