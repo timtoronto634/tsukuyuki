@@ -5,18 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GodOfHome : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnClick()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-        // SampleSceneに切り替える
-            SceneManager.LoadScene("Before");
-        }
+        Debug.Log("pushed");
+        SceneManager.LoadScene("Before");
     }
 }
