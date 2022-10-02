@@ -17,7 +17,6 @@ public class gifPlayer : MonoBehaviour
     private List<Texture2D> mFrames = new List<Texture2D>();
     private List<float> mFrameDelay = new List<float>();
 
-    public TextMeshProUGUI text;
 
     private int mCurFrame = 0;
     private float mTime = 0.0f;
@@ -33,8 +32,6 @@ public class gifPlayer : MonoBehaviour
 
         BetterStreamingAssets.Initialize();
         var bytes = BetterStreamingAssets.ReadAllBytes(Filename);
-        text.text = path;
-        // File.ReadAllBytes(path)
         using (var decoder = new MG.GIF.Decoder(bytes))
         {
             var img = decoder.NextImage();
