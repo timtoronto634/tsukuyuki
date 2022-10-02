@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1095230320}
-  Filename: ../StreamingAssets/dulululululu.gif
+  Filename: dulululululu.gif
   repeat: 0
   autoPlay: 1
   isPlaying: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1729902932}
-  Filename: ../StreamingAssets/yukidaruma-melted.gif
+  Filename: yukidaruma-melted.gif
   repeat: 0
   autoPlay: 1
   isPlaying: 0
