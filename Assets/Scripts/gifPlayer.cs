@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class gifPlayer : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class gifPlayer : MonoBehaviour
     private List<Texture2D> mFrames = new List<Texture2D>();
     private List<float> mFrameDelay = new List<float>();
 
+    public TextMeshProUGUI text;
+
     private int mCurFrame = 0;
     private float mTime = 0.0f;
     public bool isPlaying = false;
@@ -28,9 +31,11 @@ public class gifPlayer : MonoBehaviour
             return;
         }
 
-        var path = Path.Combine(Application.streamingAssetsPath, Filename);
-
-        using (var decoder = new MG.GIF.Decoder(File.ReadAllBytes(path)))
+        BetterStreamingAssets.Initialize();
+        var bytes = BetterStreamingAssets.ReadAllBytes(Filename);
+        text.text = path;
+        // File.ReadAllBytes(path)
+        using (var decoder = new MG.GIF.Decoder(bytes))
         {
             var img = decoder.NextImage();
 
@@ -46,7 +51,6 @@ public class gifPlayer : MonoBehaviour
 
         if (autoPlay) Play();
     }
-
     void Update()
     {
         if (!isPlaying) return;
@@ -70,7 +74,7 @@ public class gifPlayer : MonoBehaviour
 
             image.texture = mFrames[mCurFrame];
         }
-        if (mCurFrame >= mFrames.Count && repeat)
+        if (mCurFrame >= mFrames.Count -1 && repeat)
         {
             mCurFrame = 0;
         }
