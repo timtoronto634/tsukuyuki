@@ -13,6 +13,7 @@ public class GodOfInGame : MonoBehaviour
     {
         timepast = 0;
         finished = false;
+        
     }
 
     // Update is called once per frame
